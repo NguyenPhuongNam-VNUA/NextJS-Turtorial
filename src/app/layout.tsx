@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from "react-bootstrap/Container";
+import AppHeader from "@/components/app.header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,9 +22,19 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <header>Đây là Header</header>
-      <body>{children}</body>
-      <footer>Đây là Footer</footer>
+      <body>
+        <AppHeader />
+        <Container className="my-3">
+          <main>{children}</main>
+        </Container>
+        <footer>
+          <div className="text-center py-2" style={{ backgroundColor: "#f8f9fa" }}>
+            <p className="mb-0">© 2026 My Next.js App. All rights reserved.</p>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }
+
+
