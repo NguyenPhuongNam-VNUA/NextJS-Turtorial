@@ -16,6 +16,10 @@ export default function Home() {
     }
   );
 
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
   console.log(">>> Check res: ", data);
 
   return (
@@ -29,7 +33,7 @@ export default function Home() {
         </li>
       </ul>
       <hr />
-      <AppTable />
+      <AppTable blogs={data}/>
     </div>
   );
 }
